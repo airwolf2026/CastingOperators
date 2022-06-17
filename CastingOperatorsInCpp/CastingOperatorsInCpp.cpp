@@ -51,25 +51,25 @@ private:
 	int derivedint;
 };
 
-int main()
-{
-	// these call the third overload, the variadic template,
-	// which uses recursion as needed.
-	//print(100, 200, 300);
-
-	//std::cout << "just a test";
-
-	double d = 1.58947;
-	int j = static_cast<int>(d);       // No warning.
-
-	// No error but not necessarily safe.
-	Base* b = new Base();
-	Derived* d2 = static_cast<Derived*>(b);
-	d2->fun_in_derived();
-
-	print(j);
-
-}
+//int main()
+//{
+//	// these call the third overload, the variadic template,
+//	// which uses recursion as needed.
+//	//print(100, 200, 300);
+//
+//	//std::cout << "just a test";
+//
+//	double d = 1.58947;
+//	int j = static_cast<int>(d);       // No warning.
+//
+//	// No error but not necessarily safe.
+//	Base* b = new Base();
+//	Derived* d2 = static_cast<Derived*>(b);
+//	d2->fun_in_derived();
+//
+//	print(j);
+//
+//}
 
 
 
