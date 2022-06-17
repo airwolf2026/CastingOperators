@@ -140,6 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CastingOperatorsInCpp.cpp" />
+    <ClCompile Include="const_cast.cpp" />
+    <ClCompile Include="dynamic_cast.cpp" />
+    <ClCompile Include="reinterpret_cast.cpp" />
     <ClCompile Include="static_cast.cpp" />
   </ItemGroup>
   <ItemGroup>

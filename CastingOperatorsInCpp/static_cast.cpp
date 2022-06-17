@@ -75,31 +75,15 @@ void f_S2(B_S2* pb) {
 	cout << "fun in f_S2" << endl;
 }
 
-int main()
-{
-	B_S2 bs2;
-	f_S2(&bs2);
-
-	D_S2 ds2;
-	f_S2(&ds2);
-
-	return 0;
-}
-
-#pragma  endregion
-
-
-#pragma region sample3
-
-#pragma  endregion
-
-
-#pragma region sample4
-
-#pragma  endregion
-
-
-
-#pragma region sample5
+//int main()
+//{
+//	B_S2 bs2;
+//	f_S2(&bs2);
+//
+//	D_S2 ds2;
+//	f_S2(&ds2);
+//
+//	return 0;
+//}
 
 #pragma  endregion

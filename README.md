@@ -23,9 +23,9 @@ Converts an *expression* to the type of *type-id,* based only on the types that 
 
 当不能准确转换的时候，由于*static_cast*没有进行运行时检查，*static_cast* 仍然正常返回，就像没有错误发生一样，而*dynamic_cast*在遇到不能转换的时候，会返回错误（空）
 
-*static_cast* 和*dynamic_cast*都能够把类指针，在类层级里进行转换，不同的是，*dynamic_cast*遇到不能转换的时候，返回空，而*statci_cast*需要程序猿保证转换后的结果是正确的
+*static_cast* 和*dynamic_cast*都能够把类指针，在类层级里进行转换，不同的是，*dynamic_cast*遇到不能转换的时候，返回空，而*static_cast*需要程序猿保证转换后的结果是正确的
 
-*statci_cast* 能够被用来进行常用类型转换，以及用户自定义类型的隐式转换
+*static_cast* 能够被用来进行常用类型转换，以及用户自定义类型的隐式转换
 
 ```
 typedef unsigned char BYTE;
@@ -42,17 +42,47 @@ void f() {
 }
 ```
 
-*statc_cast* 能够把整形转换到对应的枚举里，如果该整形不在该枚举里定义，则结果是未知的。
+*static_cast* 能够把整形转换到对应的枚举里，如果该整形不在该枚举里定义，则结果是未知的。
 
 *static_cast*可以把空指针转换成目标类型的**空指针**。
 
-任何类型都可以用*statci_cast*显式的转换成**void 类型**，该void类型可以被**const**，**volatile**，或**__unaligned**修饰，但是反过来却不能去除这些修饰属性。
+任何类型都可以用*static_cast*显式的转换成**void 类型**，该void类型可以被**const**，**volatile**，或**__unaligned**修饰，但是反过来却不能去除这些修饰属性。
 
-**<u>在性能很重要而且你能保证转换后的结果正确，可以考虑用statci_cast进行转换</u>**
+**<u>在性能很重要而且你能保证转换后的结果正确，可以考虑用static_cast进行转换</u>**
+
+在C++/CLI 中可以用[safe_cast](https://docs.microsoft.com/en-us/cpp/extensions/safe-cast-cpp-component-extensions?view=msvc-170) 在debug模式下替换static_cast
 
  ### dynamic_cast
 
- ### const_cast
+>for safe, runtime-checked casts of pointer-to-base to pointer-to-derived. A **`dynamic_cast`** is safer than a **`static_cast`** for downcasts, but the runtime check incurs some overhead.
+>
+>主要用来upcast 向上转换
+
+##### syntax
+
+```
+dynamic_cast < type-id > ( expression )
+```
+
+##### 备注：
+
+这里的type-id 一定要是指针或者某个类型的引用，甚或是void*指针。
+
+expression当type-id是指针的时候，也要是指针，引用同理。
+
+### const_cast
+
+##### syntax
+
+##### 备注：
 
 ### reinterpret_cast
+
+##### syntax
+
+##### 备注：
+
+### safe_cast
+
+Used in C++/CLI to produce verifiable MSIL.
 
