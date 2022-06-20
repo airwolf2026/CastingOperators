@@ -40,7 +40,29 @@ void f_S2() {
 	// pv now points to an object of type B
 
 	return;
+	//typoraCracker
 }
+
+#pragma region sample3
+
+//If the type of expression is a base class of the type of type-id, 
+//a run-time check is made to see if expression actually points to a complete object of the type of type-id.
+//If this is true, the result is a pointer to a complete object of the type of type-id. For example:
+
+// dynamic_cast_3.cpp
+// compile with: /c /GR
+class B_S3 { virtual void f(); };
+class D_S3 : public B_S3 { virtual void f(); };
+
+void f() {
+	B_S3* pb = new D_S3;  // unclear but ok
+	B_S3* pb2 = new B_S3;
+
+	D_S3* pd = dynamic_cast<D_S3*>(pb);   // ok: pb actually points to a D
+	D_S3* pd2 = dynamic_cast<D_S3*>(pb2);   // pb2 points to a B not a D
+}
+
+#pragma  endregion
 
 int main()
 {
@@ -50,8 +72,3 @@ int main()
 }
 #pragma  endregion
 
-
-
-#pragma region sample5
-
-#pragma  endregion
