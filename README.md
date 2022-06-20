@@ -104,13 +104,25 @@ You cannot use the **`const_cast`** operator to directly override a constant var
 const_cast< CCTest * >( this )->number--;
 ```
 
-
-
 ### reinterpret_cast
+
+>for casts between unrelated types such as a pointer type and an int
+
+**reinterpret_cast**用来转换两个不相干的类型，比如指针和int转换（其实还是能转换的，在正确的地址空间里面），该转换区别于**static_cast**，不是很常用的转换，主要用来整形和能转换到对应指针类型之间进行转换。
 
 ##### syntax
 
+```c++
+reinterpret_cast < type-id > ( expression )
+```
+
 ##### 备注：
+
+乱用**reinterpret_cast** 是不安全，除非程序猿能保证那样转换是需要的。
+
+**reinterpret_cast** 无法去除**const**，**volatile**，**__unaligned**等修饰符，请用**const_cast**
+
+**reinterpret_cast** 同样可以把一个空指针转换到对应类型的空指针。
 
 ### safe_cast
 

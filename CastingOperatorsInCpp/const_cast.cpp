@@ -24,11 +24,11 @@ void CCTest::printNumber() const {
 	cout << "\nAfter: " << number;
 }
 
-int main() {
-	CCTest X;
-	X.setNumber(8);
-	X.printNumber();
-}
+//int main() {
+//	CCTest X;
+//	X.setNumber(8);
+//	X.printNumber();
+//}
 
 
 
