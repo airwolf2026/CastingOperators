@@ -51,8 +51,8 @@ void f_S2() {
 
 // dynamic_cast_3.cpp
 // compile with: /c /GR
-class B_S3 { virtual void f(); };
-class D_S3 : public B_S3 { virtual void f(); };
+class B_S3 { virtual void f() {}; };
+class D_S3 : public B_S3 { virtual void f() {}; };
 
 void f() {
 	B_S3* pb = new D_S3;  // unclear but ok
@@ -64,11 +64,12 @@ void f() {
 
 #pragma  endregion
 
-int main()
-{
-	f_S2();
+//int main()
+//{
+//	f_S2();
+//
+//	return 0;
+//}
 
-	return 0;
-}
 #pragma  endregion
 

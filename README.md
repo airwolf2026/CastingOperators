@@ -80,9 +80,31 @@ dynamic_cast < type-id > ( expression )
 
 ### const_cast
 
+>for casting away the const-ness of a variable, or converting a non-const variable to be const
+
+**const_cast**用来把带**const**修饰的变量转换为没有**const**修饰，或反过来也行。
+
 ##### syntax
 
+```
+const_cast <type-id> (expression)
+```
+
 ##### 备注：
+
+const_cast 可以作用于指针或引用，可用于变量或者类成员。
+
+You cannot use the **`const_cast`** operator to directly override a constant variable's constant status.
+
+请不要用**const_cast**直接重写一个**const**变量的**const**状态
+
+**const_cast** 作用域只在它出现的地方（The cast lasts only for the remainder of the statement in which it appears.）
+
+```c++
+const_cast< CCTest * >( this )->number--;
+```
+
+
 
 ### reinterpret_cast
 
